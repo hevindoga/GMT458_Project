@@ -34,8 +34,8 @@ var markerVectorLayer = new ol.layer.Vector({
           angle: Math.PI / 4
         })
       })
-
 });
+
 
 map.addLayer(markerVectorLayer);
 var select = new ol.interaction.Select({multiple:false});
@@ -54,9 +54,9 @@ function fnHandler(e)
     var coord = e.mapBrowserEvent.coordinate;
     let features = e.target.getFeatures();
     features.forEach( (feature) => {
-        console.log(feature.getProperties().tree_type);
+        console.log(feature.getProperties().buildings_type);
     
-    document.getElementById("tree_type").value=feature.getProperties().tree_type;
+    document.getElementById("buildings_type").value=feature.getProperties().buildings_type;
     document.getElementById("height").value=feature.getProperties().height;
     });
     if (e.selected[0])
@@ -77,7 +77,7 @@ function submit()
 
         Latitude: document.getElementById('Latitude').value,
         Longitude: document.getElementById('Longitude').value,
-        tree_type: document.getElementById('tree_type').value,
+        building_type: document.getElementById('buildings_type').value,
         height: document.getElementById('height').value
     });
     xhr.send(data);
